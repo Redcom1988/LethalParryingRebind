@@ -13,9 +13,9 @@ namespace LethalParrying.Patches
     {
         internal static bool isPerfectParryFrame = false;
         internal static bool isSlow = false;
-        internal static float perfectParryWindow = 0.5f;
+        internal static float perfectParryWindow = LethalParryBase.ParryWindow.Value;
         internal static float lastParryTime;
-        internal static float perfectParryCooldown = 1f;
+        internal static float perfectParryCooldown = LethalParryBase.ParryCooldown.Value;
         internal static GrabbableObject currentItem;
         internal static Shovel shovel = null;
         internal static bool ParriedDeath = false;
@@ -100,7 +100,7 @@ namespace LethalParrying.Patches
                 __instance.ResetFallGravity();
                 lastParryTime = 0;
             }
-            else if(Keyboard.current.rKey.isPressed)
+            else if(ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed)
             {
                 int negatedDamage = UnityEngine.Random.Range(0, damageNumber - UnityEngine.Random.Range(0, damageNumber));
                 damageNumber -= negatedDamage;
@@ -145,7 +145,7 @@ namespace LethalParrying.Patches
                 }*/ // no idea why this isn't working. boowmp :(
 
                 currentItem = __instance.ItemSlots[__instance.currentItemSlot];
-                if (!Keyboard.current.rKey.isPressed || currentItem == null || shovel == null)
+                if (!(ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed) || currentItem == null || shovel == null)
                 {
                     if (__instance.bleedingHeavily)
                     {
@@ -164,7 +164,7 @@ namespace LethalParrying.Patches
                 {
                     return;
                 }
-                if ((Keyboard.current.rKey).wasPressedThisFrame)
+                if (ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed)
                 {
                     if(shovel.reelingUp || __instance.bleedingHeavily)
                     {
@@ -176,7 +176,7 @@ namespace LethalParrying.Patches
                         __instance.StartCoroutine(PerfectParryWindow(__instance,shovel));
                         MakeCriticallyInjured(__instance, true);
                         LethalParryBase.stun = true;
-                        isSlow = true;
+                        isSlow = false;
                     }
                     else if (!isPerfectParryFrame && LethalParryBase.DisplayCooldown.Value)
                     {
