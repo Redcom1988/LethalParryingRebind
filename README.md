@@ -39,8 +39,8 @@ To perform a parry, press the `Parry` keybind upon getting hit. Master the timin
 
 ## Patch Notes
 
+`Ryokune`
 ### Version 1.0.0
-
 - **Added**: Lethal Parrying. Initial Release.
 - **Feature**: Parry almost everything with the press of the `F` key.
 - **Configurations**: Customize the mod settings through the `config.cfg` file.
@@ -57,5 +57,7 @@ To perform a parry, press the `Parry` keybind upon getting hit. Master the timin
 - **Future updates (No definite patch release)**: cool parry animation and sound.
 ### Version 1.0.31
 - **QUICK PATCH**: CHANGE PARRY WINDOW BACK TO DEFAULT
+
+`Redcom1988`
 ### Version 1.0.32
 - **Added**: configuration for keybinds, parry window, and cooldown.
