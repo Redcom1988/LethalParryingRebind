@@ -3,6 +3,7 @@
 ## Overview
 
 The Lethal Parrying mod enhances your gameplay in Lethal Company by allowing you to parry almost everything. Master the art of parrying and face your enemies with confidence!
+**This is a fork of the mod Lethal Parrying by Ryokune** (https://thunderstore.io/c/lethal-company/p/Ryokune/LethalParrying/)
 
 ## Features
 
@@ -21,7 +22,7 @@ The Lethal Parrying mod enhances your gameplay in Lethal Company by allowing you
 
 - **Drop Probability**: Probability for how often you might drop your weapon when failing to parry or holding parry keybind. (Default: 15)
 - **Parry Window**: Time window to parry an attack. (Default: 0.25 seconds)
-- **Parry Cooldownw**: Cooldown time for parrying. (Default: 2 seconds)
+- **Parry Cooldown**: Cooldown time for parrying. (Default: 2 seconds)
 - **Keybind**: Keybind to trigger a parry. (Default: `F`)
 - **Display Parry Notifications**: Enables/Disables screen notifications for parry information. (Will be removed when sounds and effects are added) (Default: true)
 - **Display Parry Cooldown (Notification)**: Shows a notification if your parry is on cooldown. (Display Parry Notifications does not affect this.) (Default: true)
