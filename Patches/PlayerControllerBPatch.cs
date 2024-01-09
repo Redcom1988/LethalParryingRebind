@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using BepInEx;
 using System.Collections;
 using System;
+using System.Text;
 
 namespace LethalParrying.Patches
 {
@@ -16,6 +17,8 @@ namespace LethalParrying.Patches
         internal static float perfectParryWindow = LethalParryBase.ParryWindow.Value;
         internal static float lastParryTime;
         internal static float perfectParryCooldown = LethalParryBase.ParryCooldown.Value;
+        internal static Key convertedKey = GetKeyFromString(LethalParryBase.Keybind.Value);
+        //internal static enum keybind = LethalParryBase.Keybind.Value;
         internal static GrabbableObject currentItem;
         internal static Shovel shovel = null;
         internal static bool ParriedDeath = false;
@@ -100,7 +103,8 @@ namespace LethalParrying.Patches
                 __instance.ResetFallGravity();
                 lastParryTime = 0;
             }
-            else if(ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed)
+            // replace these
+            else if (convertedKey != Key.None && Keyboard.current[convertedKey].isPressed)
             {
                 int negatedDamage = UnityEngine.Random.Range(0, damageNumber - UnityEngine.Random.Range(0, damageNumber));
                 damageNumber -= negatedDamage;
@@ -145,7 +149,8 @@ namespace LethalParrying.Patches
                 }*/ // no idea why this isn't working. boowmp :(
 
                 currentItem = __instance.ItemSlots[__instance.currentItemSlot];
-                if (!(ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed) || currentItem == null || shovel == null)
+                //replace these
+                if (!(convertedKey != Key.None && Keyboard.current[convertedKey].isPressed) || currentItem == null || shovel == null)
                 {
                     if (__instance.bleedingHeavily)
                     {
@@ -164,7 +169,8 @@ namespace LethalParrying.Patches
                 {
                     return;
                 }
-                if (ParryBind.Instance.KeybindPressed.triggered || Keyboard.current.rKey.isPressed)
+                //replace these
+                if (convertedKey != Key.None && Keyboard.current[convertedKey].isPressed)
                 {
                     if(shovel.reelingUp || __instance.bleedingHeavily)
                     {
@@ -176,7 +182,7 @@ namespace LethalParrying.Patches
                         __instance.StartCoroutine(PerfectParryWindow(__instance,shovel));
                         MakeCriticallyInjured(__instance, true);
                         LethalParryBase.stun = true;
-                        isSlow = false;
+                        isSlow = true;
                     }
                     else if (!isPerfectParryFrame && LethalParryBase.DisplayCooldown.Value)
                     {
@@ -187,7 +193,19 @@ namespace LethalParrying.Patches
         }
 
         // All Non-Patch related functions here.
-        static IEnumerator DoHit(PlayerControllerB player, Shovel shovel)
+        private static Key GetKeyFromString(string keyString)
+        {
+            foreach (Key key in System.Enum.GetValues(typeof(Key)))
+            {
+                if (key.ToString().ToLower() == keyString.ToLower())
+                {
+                    return key;
+                }
+            }
+
+            return Key.None;
+        }
+            static IEnumerator DoHit(PlayerControllerB player, Shovel shovel)
         {
             AccessTools.Field(typeof(Shovel), "previousPlayerHeldBy").SetValue(shovel, player); // Fixes bugs related to negative cooldowns.
             shovel.reelingUp = true;

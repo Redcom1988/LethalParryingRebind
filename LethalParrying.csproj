@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>Ryokune.LethalParrying</AssemblyName>
+    <AssemblyName>Redcom1988.LethalParryingRebind</AssemblyName>
     <Description>Lethal Company Parrying</Description>
-    <Version>1.0.31</Version>
+    <Version>1.0.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <Authors>Ryokune</Authors>
+    <Authors>Redcom1988</Authors>
     <ApplicationIcon />
     <Win32Resource />
-    <PackageId>Ryokune.LethalParrying</PackageId>
-    <Product>LethalParrying</Product>
+    <PackageId>Redcom1988.LethalParryingRebind</PackageId>
+    <Product>LethalParryingRebind</Product>
   </PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
