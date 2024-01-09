@@ -1,42 +1,41 @@
-# Lethal Parrying Mod for Lethal Company
+# Parrying mod in lethal company
 
 ## Overview
 
 The Lethal Parrying mod enhances your gameplay in Lethal Company by allowing you to parry almost everything. Master the art of parrying and face your enemies with confidence!
+**This is a fork of the mod Lethal Parrying by Ryokune**
 
 ## Features
 
 - **Parry Almost Everything**: With this mod, you can parry a wide range of attacks and threats.
 - **Configurable Settings**: Customize the mod according to your preferences using the provided configuration options.
 
-## Installation
+## Manual Installation Guide
 
 1. Ensure you have [BepInEx](https://thunderstore.io/c/lethal-company/p/BepInEx/BepInExPack/) installed.
-2. Download the latest release of the Lethal Parrying mod from [Thunderstore](https://thunderstore.io/c/lethal-company/p/Ryokune/LethalParrying/).
+2. Download the latest release of the Lethal Parrying mod from [Thunderstore](https://thunderstore.io/c/lethal-company/p/Redcom1988/LethalParryingRebind/).
 3. Extract the contents into your Lethal Company's `BepInEx/plugins` folder.
 
 ## Configuration
 
 ### Config File: `config.cfg`
 
-- **Drop Probability**: Probability for how often you might drop your weapon when failing to parry or holding F. (Default: 15)
-- **Display Parry Notifications**: Enables/Disables screen notifications for parry information. (Will be removed when sounds and effects are added) (Default: true)
+- **Drop Probability**: Probability for how often you might drop your weapon when failing to parry or holding the parry button. (Default: 15%)
+- **Parry Window**: Window to parry attacks. (Default: 0.25 seconds)
+- **Parry Cooldown**: Cooldown for parrying. (Default: 2 seconds)
+- **Keybind**: Keybind to parry attacks. (Default: F)
+- **Display Parry Notifications**: Enables/Disables screen notifications for parry information. (Will be removed when sounds and effects are added) (Default: false)
 - **Display Parry Cooldown (Notification)**: Shows a notification if your parry is on cooldown. (Display Parry Notifications does not affect this.) (Default: true)
 
 ## How to Parry
-
-To perform a parry, press the `F` key. Master the timing to become an unstoppable force!
-
-**Note:** The keybind for parrying is currently fixed and cannot be changed. However, this will be addressed in a future update.
+To perform a parry, press the `Parry` keybind upon getting hit. Master the timing to become an unstoppable force!
 
 ## Developer Notes
 **IMPORTANT NOTICE**: This mod is client-side and works on any server. Please use it responsibly and refrain from abusing its capabilities. Enjoy the enhanced gameplay experience, and ensure fair play within the community!
-**Update v1.0.3 Notice**: Incase you are having problems after the v1.0.3 update, check your `BepInEx/plugins` folder and delete `LethalParrying.dll` and keep `Ryokune.LethalParrying.dll`. Happy parrying!
-### Plugin Details
 
-- **Plugin Name**: Lethal Parrying
-- **Plugin Version**: 1.0.3
-- **Plugin GUID**: Ryokune.LethalParrying
+- **Plugin Name**: Lethal Parrying Rebind
+- **Plugin Version**: 1.0.32
+- **Plugin GUID**: Redcom1988.LethalParryingRebind
 
 ## Patch Notes
 
@@ -58,3 +57,5 @@ To perform a parry, press the `F` key. Master the timing to become an unstoppabl
 - **Future updates (No definite patch release)**: cool parry animation and sound.
 ### Version 1.0.31
 - **QUICK PATCH**: CHANGE PARRY WINDOW BACK TO DEFAULT
+### Version 1.0.32
+- **Added**: configuration for keybinds, parry window, and cooldown.
