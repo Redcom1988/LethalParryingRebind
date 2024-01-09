@@ -66,5 +66,5 @@ To perform a parry, press the `parry` keybind before getting hit. Master the tim
 `Redcom1988`
 ### Version 1.0.32
 - **ADDED**: Configuration for parry keybind, window, and cooldown.
-### Version 1.0.33
-- **Fixed**: Wrong readme.md file
+### Version 1.0.33-1.0.34
+- **Fixed**: Wrong readme.md file.
